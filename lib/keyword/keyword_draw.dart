@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import '../color.dart';
 import '../input/input_controller.dart';
 
 class KeywordDraw extends StatelessWidget {
@@ -20,7 +21,7 @@ class KeywordDraw extends StatelessWidget {
                 children: <Widget>[
                   ...controller.keywordList.map((KeywordObj keyObj) =>
                       CustomPaint(
-                        painter: KeywordPainter(text: keyObj.text),
+                        painter: KeywordPainter(keyword: keyObj.text),
                         child: Container()
                         // child: Padding(
                         //   padding: const EdgeInsets.only(top: 10.0),
@@ -49,20 +50,38 @@ class KeywordDraw extends StatelessWidget {
 
 class KeywordPainter extends CustomPainter {
 
+  final controller = Get.find<InputController>();
+
   KeywordPainter({
-    required this.text,
+    required this.keyword,
   });
 
-  String text;
+  final String keyword;
+
 
   @override
   void paint(Canvas canvas, Size size) {
+
+    final textSpan = TextSpan(style: TextStyle(
+        color: ColorTheme.main,
+        fontSize: 20,
+        fontWeight: FontWeight.bold
+    ),
+        text: keyword);
+
+
+    final drawText = TextPainter()
+      ..text = textSpan
+      ..textDirection = TextDirection.ltr
+      ..textAlign = TextAlign.center
+      ..layout();
+
+
+    drawText.paint(canvas, Offset(0,20));
 
   }
 
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) => true;
-
-
 
 }

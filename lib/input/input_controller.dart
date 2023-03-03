@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
-
 class WordType {
   final String cardText;
   final Size textLength;
@@ -33,8 +32,10 @@ class InputController extends GetxController {
 
 
   final textController = TextEditingController();
+
   RxString keyword = "".obs;
   RxList<KeywordObj> keywordList = <KeywordObj>[].obs;
+  RxList<WordType> drawKeywordList = <WordType>[].obs;
 
 
   getKeyword () {
@@ -46,7 +47,6 @@ class InputController extends GetxController {
           id: keywordList.length + 1
       )
     );
-
     textController.clear();
     keyword.value = "";
     update();
