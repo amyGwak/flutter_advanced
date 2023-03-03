@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import './aboutMe.dart';
+import './about_me.dart';
 import 'color.dart';
 
 

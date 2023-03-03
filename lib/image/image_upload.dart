@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'dart:io';
 import '../color.dart';
-import 'imageController.dart';
+import 'image_controller.dart';
 
 
 class MyImageUpload extends StatelessWidget {
